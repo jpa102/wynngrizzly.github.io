@@ -1,22 +1,41 @@
 <!DOCTYPE HTML>
-<html>
+<html data-theme-display="blackhole">
 	<head>
 		<title>Welcome to my website!</title>
 		<meta data-n-head="ssr" name="viewport" content="width=device-width,initial-scale=1">
 		<meta name="robots" content="noindex,nofollow,noarchive">
 		<meta charset="UTF-8">
-		<style>
-			body { background: black; }
-			#h1-and-p-container { display: flex; flex-direction: column; align-items: center; }
-			h1 { color: white; }
+		<style id="html-css" type="text/css">
+			html[data-theme-display='blackhole'] body { background: black; }
+			html[data-theme-display='blackhole'] h1 { color: white; }
+			html[data-theme-display='blackhole'] #theme-display-switcher { background: rgba(255, 255, 255, 0.67); }
 			p { color: gray; }
-			h1, p { font-family: "Arial"; text-align: center; }
+			h1, p { font-family: Arial, system-ui; text-align: center; }
+			#h1-and-p-container { display: flex; flex-direction: column; align-items: center; }
+			#theme-display-switcher { position: absolute; bottom: 0; right: 0; margin: 0rem 1.2rem 1.2rem 0rem; padding: 12px; border-radius: 8px; border: none; background: rgba(0, 0, 0, 0.2); }
 		</style>
+		<script id="javascript-theme-switcher" type="text/javascript">
+			function switchTheme() {
+				if (document.querySelector("html").getAttribute("data-theme-display") == "blackhole") {
+					document.querySelector("html").setAttribute("data-theme-display", "light");
+					return;
+				}
+				if (document.querySelector("html").getAttribute("data-theme-display") == "light") {
+					document.querySelector("html").setAttribute("data-theme-display", "blackhole");
+					return;
+				}
+			}
+		</script>
 	</head>
 	<body>
 		<div id="h1-and-p-container">
-			<h1>This is Wynn's GitHub pages - Homepage</h1>
+			<h1>This is <span onclick="alert(`My full name is Wynn Grizzly S. Peñaflor`)">Wynn's</span> GitHub pages - Homepage</h1>
 			<p>My GitHub pages don't contain much for now.</p>
 		</div>
+		<button id="theme-display-switcher" onclick="switchTheme()">
+			<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;">
+				<path d="M12,22 C17.5228475,22 22,17.5228475 22,12 C22,6.4771525 17.5228475,2 12,2 C6.4771525,2 2,6.4771525 2,12 C2,17.5228475 6.4771525,22 12,22 Z M12,20.5 L12,3.5 C16.6944204,3.5 20.5,7.30557963 20.5,12 C20.5,16.6944204 16.6944204,20.5 12,20.5 Z"></path>
+			</svg>
+		</button>
 	</body>
 </html>
